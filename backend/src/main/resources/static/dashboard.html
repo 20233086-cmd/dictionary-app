@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Học tập — Dictly</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+<nav class="nav"><div class="nav__inner"><a href="index.html" class="nav__brand"><span class="nav__brand-mark">D</span> Dictly</a><div class="nav__links">
+<a href="index.html" data-nav-link="home" class="nav__link">Tra từ</a><a href="dashboard.html" data-nav-link="dashboard" class="nav__link">Học tập</a><a href="topics.html" data-nav-link="topics" class="nav__link">Chủ đề</a><a href="flashcards.html" data-nav-link="flashcards" class="nav__link">Ôn tập</a><a href="quiz.html" data-nav-link="quiz" class="nav__link">Quiz</a><a href="favorites.html" data-nav-link="favorites" class="nav__link">Yêu thích</a><a href="history.html" data-nav-link="history" class="nav__link">Lịch sử</a><a href="admin.html" id="nav-admin-link" data-nav-link="admin" class="nav__link" style="display:none">Quản trị</a>
+</div><div class="nav__auth" id="nav-auth-slot"></div></div></nav>
+<main class="container dashboard-page">
+<div class="dashboard-hero"><div><p class="hero__eyebrow">DICTLY LEARNING</p><h1 class="page-title">Trung tâm học tập</h1><p class="page-subtitle">Theo dõi tiến độ, ôn từ đúng lúc và duy trì thói quen học mỗi ngày.</p></div><a href="ai.html" class="btn btn--primary">✦ AI Tutor</a></div>
+<div class="dashboard-grid" id="stat-cards"><div class="card stat-card"><span>Đang tải...</span></div></div>
+<!-- Khung Thống kê dành cho Admin (Ẩn mặc định) -->
+<div id="admin-stats-section" style="display: none; margin-bottom: 24px;">
+  <div class="card dashboard-card">
+    <div class="section-heading">
+      <div>
+        <p class="side-card__label">QUẢN TRỊ VIÊN</p>
+        <h2>Thống kê tổng quan hệ thống</h2>
+      </div>
+    </div>
+    <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+      <div class="card stat-card">
+        <h3>Tổng từ vựng</h3>
+        <p id="admin-total-words" style="font-size: 24px; font-weight: bold; color: var(--primary);">0</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Người dùng</h3>
+        <p id="admin-total-users" style="font-size: 24px; font-weight: bold; color: var(--primary);">0</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Lượt tìm kiếm</h3>
+        <p id="admin-total-searches" style="font-size: 24px; font-weight: bold; color: var(--primary);">0</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Từ yêu thích</h3>
+        <p id="admin-total-favorites" style="font-size: 24px; font-weight: bold; color: var(--primary);">0</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashboard-columns">
+<section class="card dashboard-card"><div class="section-heading"><div><p class="side-card__label">TỪ VỰNG HÔM NAY</p><h2>Word of the Day</h2></div><button class="icon-btn" id="speak-word" title="Phát âm">🔊</button></div><div id="wotd" class="wotd-large">Đang tải...</div></section>
+<section class="card dashboard-card"><div class="section-heading"><div><p class="side-card__label">ÔN TẬP</p><h2>Việc cần làm hôm nay</h2></div></div><div class="task-list"><a href="flashcards.html" class="task-item"><span class="task-icon">🧠</span><span><strong id="due-task">—</strong><small>thẻ đến hạn ôn tập</small></span><span>→</span></a><a href="quiz.html" class="task-item"><span class="task-icon">🎯</span><span><strong>Quiz hàng ngày</strong><small>kiểm tra nhanh kiến thức</small></span><span>→</span></a><a href="topics.html" class="task-item"><span class="task-icon">📚</span><span><strong>Học theo chủ đề</strong><small>mở rộng vốn từ theo lĩnh vực</small></span><span>→</span></a></div></section>
+</div>
+<div class="card dashboard-card"><div class="section-heading"><div><p class="side-card__label">GỢI Ý</p><h2>Bắt đầu phiên học 10 phút</h2></div></div><div class="study-flow"><div><b>01</b><span>Ôn thẻ đến hạn</span></div><div><b>02</b><span>Học 5 từ mới</span></div><div><b>03</b><span>Làm 5 câu Quiz</span></div><div><b>04</b><span>Chat với AI</span></div></div></div>
+</main>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/header.js"></script><script src="js/dashboard.js"></script>
+</body></html>
