@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tutor — Dictly</title><link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<nav class="nav"><div class="nav__inner">
+<a href="index.html" class="nav__brand"><span class="nav__brand-mark">D</span> Dictly</a>
+<div class="nav__links">
+<a href="index.html" data-nav-link="home" class="nav__link">Tra từ</a>
+<a href="dashboard.html" data-nav-link="dashboard" class="nav__link">Học tập</a>
+<a href="topics.html" data-nav-link="topics" class="nav__link">Chủ đề</a>
+<a href="flashcards.html" data-nav-link="flashcards" class="nav__link">Ôn tập</a>
+<a href="quiz.html" data-nav-link="quiz" class="nav__link">Quiz</a>
+<a href="favorites.html" data-nav-link="favorites" class="nav__link">Yêu thích</a>
+<a href="history.html" data-nav-link="history" class="nav__link">Lịch sử</a>
+<a href="admin.html" id="nav-admin-link" data-nav-link="admin" class="nav__link" style="display:none">Quản trị</a>
+</div><div class="nav__auth" id="nav-auth-slot"></div></div></nav>
+
+<main class="container ai-page">
+<section class="ai-intro"><div><p class="hero__eyebrow">AI LEARNING COMPANION</p><h1 class="page-title">✦ AI Tutor</h1><p class="page-subtitle">Trợ lý riêng cho người học: giải thích từ vựng, ngữ pháp, dịch câu, sửa câu và luyện hội thoại tiếng Anh.</p></div><div class="ai-badge">USER AI · GEMINI</div></section>
+
+<div class="ai-tutor-layout">
+<section class="card tutor-chat-card">
+<div class="tutor-chat-head"><div><strong>Dictly AI Tutor</strong><small>Hỏi bằng tiếng Việt hoặc tiếng Anh</small></div><button class="btn btn--ghost btn--sm" id="btn-clear-chat">Xóa chat</button></div>
+<div class="tutor-messages" id="tutor-messages"><div class="tutor-message tutor-message--bot"><div class="tutor-avatar">✦</div><div><strong>AI Tutor</strong><p>Xin chào! Mình có thể giải thích từ vựng, sửa câu, dịch, phân biệt từ dễ nhầm hoặc cùng bạn luyện tiếng Anh.</p><div class="tutor-suggestions"><button data-prompt="Phân biệt say, tell và speak">Say / tell / speak</button><button data-prompt="Giải thích từ achieve và cho 3 ví dụ">Học từ achieve</button><button data-prompt="Tạo cho tôi 5 câu hỏi luyện ngữ pháp trình độ B1">Luyện ngữ pháp B1</button></div></div></div></div>
+<div class="tutor-composer"><textarea id="tutor-input" rows="2" maxlength="1500" placeholder="Ví dụ: Phân biệt make và do..."></textarea><button class="btn btn--primary" id="btn-tutor-send">Gửi ✦</button></div>
+</section>
+
+<aside class="ai-tutor-tools">
+<div class="card ai-tool-card"><p class="side-card__label">CÔNG CỤ HỌC NHANH</p><button data-action="explain" class="ai-tool-btn"><span>📖</span><div><strong>Giải thích từ</strong><small>Nghĩa, từ loại, ví dụ, đồng nghĩa.</small></div></button><button data-action="translate" class="ai-tool-btn"><span>🌐</span><div><strong>Dịch câu</strong><small>Anh ↔ Việt, ưu tiên ngữ cảnh.</small></div></button><button data-action="practice" class="ai-tool-btn"><span>💬</span><div><strong>Luyện hội thoại</strong><small>AI đặt câu hỏi và sửa lỗi.</small></div></button></div>
+<div class="card ai-tool-card"><p class="side-card__label">✍️ AI SỬA CÂU</p><textarea id="correct-input" rows="4" placeholder="I have study English for two years."></textarea><button class="btn btn--primary" id="btn-correct">Kiểm tra câu</button><div id="correct-result" class="ai-mini-result"></div></div>
+</aside>
+</div></main>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/header.js"></script><script src="js/ai-tutor.js"></script>
+</body></html>
