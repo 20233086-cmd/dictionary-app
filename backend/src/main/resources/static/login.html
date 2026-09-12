@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập — Dictly</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__brand-mark">D</span> Dictly
+    </a>
+    <div class="nav__links">
+      <a href="index.html" data-nav-link="home" class="nav__link">Tra từ</a><a href="dashboard.html" data-nav-link="dashboard" class="nav__link">Học tập</a><a href="topics.html" data-nav-link="topics" class="nav__link">Chủ đề</a>
+      <a href="flashcards.html" data-nav-link="flashcards" class="nav__link">Ôn tập</a>
+      <a href="quiz.html" data-nav-link="quiz" class="nav__link">Quiz</a>
+      <a href="favorites.html" data-nav-link="favorites" class="nav__link">Yêu thích</a>
+      <a href="history.html" data-nav-link="history" class="nav__link">Lịch sử</a>
+      <a href="admin.html" id="nav-admin-link" data-nav-link="admin" class="nav__link" style="display:none">Quản trị</a>
+    </div>
+    <div class="nav__auth" id="nav-auth-slot"></div>
+  </div>
+</nav>
+
+<div class="auth-shell">
+  <div class="card auth-card">
+    <h1 class="auth-card__title">Chào mừng trở lại</h1>
+    <p class="auth-card__subtitle">Đăng nhập để lưu từ yêu thích và trò chuyện với Dictly Bot.</p>
+
+    <div class="alert alert--error" id="login-error" style="display:none;"></div>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="username">Tên đăng nhập</label>
+        <input type="text" id="username" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn--primary btn--block" id="btn-submit">Đăng nhập</button>
+    </form>
+
+    <p class="auth-card__footer">Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+    <p class="auth-card__footer" style="margin-top:4px; font-size:12.5px;">
+      Tài khoản quản trị mặc định: <strong>admin / admin123</strong>
+    </p>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/header.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
