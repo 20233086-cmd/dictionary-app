@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quản trị từ điển — Dictly</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__brand-mark">D</span> Dictly
+    </a>
+    <div class="nav__links">
+      <a href="index.html" data-nav-link="home" class="nav__link">Tra từ</a><a href="dashboard.html" data-nav-link="dashboard" class="nav__link">Học tập</a><a href="topics.html" data-nav-link="topics" class="nav__link">Chủ đề</a>
+      <a href="flashcards.html" data-nav-link="flashcards" class="nav__link">Ôn tập</a>
+      <a href="quiz.html" data-nav-link="quiz" class="nav__link">Quiz</a>
+      <a href="favorites.html" data-nav-link="favorites" class="nav__link">Yêu thích</a>
+      <a href="history.html" data-nav-link="history" class="nav__link">Lịch sử</a>
+      <a href="admin.html" id="nav-admin-link" data-nav-link="admin" class="nav__link" style="display:none">Quản trị</a>
+    </div>
+    <div class="nav__auth" id="nav-auth-slot"></div>
+  </div>
+</nav>
+
+<main class="container">
+  <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <div>
+      <h1 class="page-title" style="margin-bottom:6px;">Quản trị từ điển</h1>
+      <p class="page-subtitle" style="margin-bottom:0;">Thêm, sửa, xoá từ vựng trong hệ thống.</p>
+    </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px;"><a class="btn btn--ghost" href="admin-ai.html">🛠️ AI Admin</a><button class="btn btn--primary" id="btn-new-word">+ Thêm từ mới</button></div>
+  </div>
+
+  <div class="card" style="padding: 22px;">
+    <div class="admin-toolbar">
+      <div class="field">
+        <input type="text" id="admin-search" placeholder="Tìm theo từ tiếng Anh...">
+      </div>
+    </div>
+
+    <div id="admin-table-wrap">
+      <div class="loading-inline">Đang tải...</div>
+    </div>
+
+    <div class="pagination" id="admin-pagination"></div>
+  </div>
+</main>
+
+<!-- Modal thêm / sửa từ vựng -->
+<div class="modal-overlay" id="word-modal-overlay">
+  <div class="card modal">
+    <h2 class="modal__title" id="modal-title">Thêm từ mới</h2>
+    <div class="alert alert--error" id="modal-error" style="display:none;"></div>
+
+    <form id="word-form">
+      <input type="hidden" id="word-id">
+
+      <div class="field">
+        <label for="word-english">Từ tiếng Anh</label>
+        <input type="text" id="word-english" required>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div class="field">
+          <label for="word-phonetic">Phiên âm</label>
+          <input type="text" id="word-phonetic" placeholder="/həˈloʊ/">
+        </div>
+        <div class="field">
+          <label for="word-topic">Chủ đề</label>
+          <select id="word-topic">
+            <option value="">— Chưa phân loại —</option>
+            <option>Daily English</option><option>Education</option><option>Technology</option><option>Work & Career</option><option>Environment</option><option>Communication</option><option>Personal Development</option><option>Travel</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="word-level">Cấp độ</label>
+          <select id="word-level">
+            <option value="">— Không chọn —</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+          </select>
+        </div>
+      </div>
+
+      <label style="display:block; font-weight:700; font-size:13.5px; margin: 20px 0 10px;">Các nghĩa</label>
+      <div id="meanings-container"></div>
+      <button type="button" class="btn btn--ghost btn--sm" id="btn-add-meaning">+ Thêm nghĩa</button>
+
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" id="btn-cancel-modal">Huỷ</button>
+        <button type="submit" class="btn btn--primary" id="btn-save-word">Lưu từ vựng</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/header.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
