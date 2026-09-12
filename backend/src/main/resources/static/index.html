@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dictly — Từ điển Anh - Việt thông minh</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__brand-mark">D</span> Dictly
+    </a>
+    <div class="nav__links">
+      <a href="index.html" data-nav-link="home" class="nav__link">Tra từ</a><a href="dashboard.html" data-nav-link="dashboard" class="nav__link">Học tập</a><a href="topics.html" data-nav-link="topics" class="nav__link">Chủ đề</a>
+      <a href="flashcards.html" data-nav-link="flashcards" class="nav__link">Ôn tập</a>
+      <a href="quiz.html" data-nav-link="quiz" class="nav__link">Quiz</a>
+      <a href="favorites.html" data-nav-link="favorites" class="nav__link">Yêu thích</a>
+      <a href="history.html" data-nav-link="history" class="nav__link">Lịch sử</a>
+      <a href="admin.html" id="nav-admin-link" data-nav-link="admin" class="nav__link" style="display:none">Quản trị</a>
+    </div>
+    <div class="nav__auth" id="nav-auth-slot"></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <p class="hero__eyebrow">Tra cứu · Học · Trò chuyện cùng AI</p>
+    <h1 class="hero__title">Từ điển Anh – Việt cho người học nghiêm túc</h1>
+
+    <div class="lookup-toggle" id="lookup-toggle">
+      <button type="button" class="lookup-toggle__btn is-active" data-direction="en-vi">Anh → Việt</button>
+      <button type="button" class="lookup-toggle__btn" data-direction="vi-en">Việt → Anh</button>
+    </div>
+
+    <div class="search-box">
+      <div class="search-box__row">
+        <input type="text" id="search-input" placeholder="Nhập từ tiếng Anh, ví dụ: achieve..." autocomplete="off">
+        <button class="btn btn--primary" id="btn-search" type="button">Tra từ</button>
+      </div>
+      <div class="search-suggest" id="search-suggest"></div>
+    </div>
+
+    <p class="hero__quick-words" id="quick-words">
+      Thử ngay:
+      <button type="button" data-quick-word="hello">hello</button>·
+      <button type="button" data-quick-word="beautiful">beautiful</button>·
+      <button type="button" data-quick-word="ambitious">ambitious</button>·
+      <button type="button" data-quick-word="resilient">resilient</button>
+    </p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="content-grid">
+
+    <aside>
+      <div class="card side-card" id="wotd-card">
+        <p class="side-card__label">TỪ VỰNG HÔM NAY</p>
+        <div id="wotd-content" class="loading-inline">Đang tải...</div>
+      </div>
+
+      <div class="card side-card">
+        <p class="side-card__label">THỐNG KÊ TỪ ĐIỂN</p>
+        <div class="stat-row"><span>Tổng số từ vựng</span> <strong id="stat-total">—</strong></div>
+      </div>
+
+      <div class="card side-card" id="top-viewed-card">
+        <p class="side-card__label">TỪ ĐƯỢC TRA NHIỀU NHẤT</p>
+        <div id="top-viewed-content" class="loading-inline">Đang tải...</div>
+      </div>
+    </aside>
+
+    <section id="result-area">
+      <div class="card empty-state">
+        <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <p class="empty-state__title">Bắt đầu tra cứu</p>
+        <p>Gõ một từ tiếng Anh vào ô tìm kiếm phía trên để xem nghĩa, phiên âm và ví dụ.</p>
+      </div>
+    </section>
+
+  </div>
+  <section class="feature-strip">
+    <a href="dashboard.html" class="feature-card"><span>📊</span><div><strong>Trung tâm học tập</strong><small>Theo dõi từ đã học, yêu thích và thẻ đến hạn.</small></div><b>→</b></a>
+    <a href="topics.html" class="feature-card"><span>📚</span><div><strong>Học theo chủ đề</strong><small>Công nghệ, giáo dục, công việc, môi trường...</small></div><b>→</b></a>
+    <a href="ai.html" class="feature-card"><span>✦</span><div><strong>AI Tutor</strong><small>Học từ, sửa câu, dịch và luyện tiếng Anh cùng AI.</small></div><b>→</b></a>
+  </section>
+</main>
+
+<!-- Chatbot widget -->
+<button class="chat-fab" id="chat-fab" type="button" aria-label="Mở trợ lý AI">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+</button>
+
+<div class="chat-panel" id="chat-panel">
+  <div class="chat-panel__header">
+    <div>
+      <p class="chat-panel__header-title">Dictly Bot</p>
+      <p class="chat-panel__header-sub">Trợ lý học tiếng Anh bằng AI</p>
+    </div>
+    <button class="chat-panel__close" id="chat-close" type="button" aria-label="Đóng">✕</button>
+  </div>
+  <div class="chat-panel__body" id="chat-body"></div>
+  <div class="chat-panel__footer" id="chat-footer">
+    <textarea id="chat-input" rows="1" placeholder="Hỏi Dictly Bot về từ vựng, ngữ pháp, dịch câu..."></textarea>
+    <button class="chat-panel__send" id="chat-send" type="button" aria-label="Gửi">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/header.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
