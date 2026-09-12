@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Admin Assistant — Dictly</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__brand-mark">D</span> Dictly
+    </a>
+    <div class="nav__links">
+      <a href="index.html" data-nav-link="home" class="nav__link">Tra từ</a>
+      <a href="dashboard.html" data-nav-link="dashboard" class="nav__link">Học tập</a>
+      <a href="topics.html" data-nav-link="topics" class="nav__link">Chủ đề</a>
+      <a href="admin.html" id="nav-admin-link" data-nav-link="admin" class="nav__link">Quản trị</a>
+      <a href="admin-ai.html" id="nav-admin-ai-link" data-nav-link="admin-ai" class="nav__link">AI Admin</a>
+    </div>
+    <div class="nav__auth" id="nav-auth-slot"></div>
+  </div>
+</nav>
+
+<main class="container admin-ai-page">
+  <section class="ai-intro">
+    <div>
+      <p class="hero__eyebrow">ADMIN INTELLIGENCE</p>
+      <h1 class="page-title">🛠️ AI Admin Assistant</h1>
+      <p class="page-subtitle">Trợ lý AI dành riêng cho quản trị viên, có thể phân tích số liệu từ hệ thống Dictly và đề xuất hướng vận hành.</p>
+    </div>
+    <div class="ai-badge">ADMIN ONLY · GEMINI</div>
+  </section>
+
+  <section class="admin-ai-grid">
+    <div class="card admin-overview-card">
+      <div class="section-heading">
+        <div>
+          <p class="side-card__label">SYSTEM SNAPSHOT</p>
+          <h2>Tổng quan hệ thống</h2>
+        </div>
+        <button class="btn btn--ghost btn--sm" id="btn-refresh-overview">↻ Làm mới</button>
+      </div>
+      <div class="admin-stat-grid" id="admin-stat-grid">
+        <div class="loading-inline">Đang tải dữ liệu...</div>
+      </div>
+      <div class="admin-topwords" id="admin-topwords"></div>
+    </div>
+
+    <div class="card admin-ai-chat">
+      <div class="tutor-chat-head">
+        <div>
+          <strong>Dictly Admin AI</strong>
+          <small>Phân tích dữ liệu · đề xuất · báo cáo</small>
+        </div>
+        <span class="admin-lock">🔒 ADMIN</span>
+      </div>
+      <div class="tutor-messages" id="admin-messages">
+        <div class="tutor-message tutor-message--bot">
+          <div class="tutor-avatar">AI</div>
+          <div class="tutor-message__content">
+            <strong>Admin Assistant</strong>
+            <div class="tutor-message__body">
+              <p>Tôi có thể phân tích số liệu hiện tại. Ví dụ: “Hãy đánh giá tình hình sử dụng hệ thống hôm nay” hoặc “Đề xuất 10 từ Technology nên bổ sung”.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tutor-composer">
+        <textarea id="admin-input" rows="2" maxlength="1500" placeholder="Hỏi AI về hệ thống Dictly..."></textarea>
+        <button class="btn btn--primary" id="btn-admin-send">Phân tích ✦</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-ai-prompts">
+    <button data-admin-prompt="Phân tích tình hình sử dụng hệ thống hiện tại và chỉ ra 3 điểm đáng chú ý.">📊 Phân tích hệ thống</button>
+    <button data-admin-prompt="Từ các từ được tra nhiều nhất, hãy đề xuất hướng cải thiện nội dung từ điển.">📚 Tối ưu từ điển</button>
+    <button data-admin-prompt="Đề xuất kế hoạch bổ sung từ vựng và Quiz cho chủ đề Technology.">💡 Đề xuất nội dung</button>
+    <button data-admin-prompt="Hãy tạo một báo cáo quản trị ngắn gọn về hệ thống hiện tại, có số liệu và kết luận.">📝 Tạo báo cáo</button>
+  </section>
+</main>
+
+<!-- CDN Thư viện Markdown -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/header.js"></script>
+<script src="js/admin-ai.js"></script>
+</body>
+</html>
